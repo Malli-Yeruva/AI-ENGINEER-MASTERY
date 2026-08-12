@@ -271,3 +271,38 @@ A function that takes another function, wraps it inside a new function, and retu
 ✅ Every call creates a new closure.
 
 hello refers to a single wrapper closure. That closure captures the variable count. Every time hello() is called, Python executes the same wrapper closure, so the captured count retains its updated value between calls.
+
+
+Mutation changes the object. Rebinding changes what the variable refers to.
+
+def func(
+    positional_parameters,
+    *args,
+    keyword_only_parameters,
+    **kwargs
+):
+
+def train_model(
+    model_name,
+    epochs,
+    *metrics,
+    learning_rate=0.001,
+    optimizer="Adam",
+    **extra_options
+):
+    pass
+
+Here:
+
+model_name → required positional parameter
+epochs → required positional parameter
+*metrics → extra positional arguments
+learning_rate and optimizer → keyword-only parameters (because they come after *args)
+**extra_options → any remaining keyword arguments
+
+
+
+Decorators solve the problem of adding common behavior to multiple functions without modifying each function individually.
+
+
+Parameterized decorators have three nested functions because the required information becomes available at three different times.
